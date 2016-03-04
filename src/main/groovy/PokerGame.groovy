@@ -1,33 +1,25 @@
-import com.google.common.collect.ForwardingList
-
 class PokerGame {
 
     List<Hand> getWinningHand(List<Hand> hands) {
-        def sortedHands = hands.collect { hand -> hand.sort(false).reverse()}
-        def (handA, handB) = sortedHands
-        def (cardA, cardB) = sortedHands*.first()
+        def handsWithPair = hands.findAll { it.containsPair() }
+        if (handsWithPair.size() == 1) {
+            return [handsWithPair.first()]
+        }
+        return highestCardWins(hands)
+    }
 
-        if (cardA == cardB) {
-            return hands
-        } else if (cardA > cardB) {
-            return [hands[0]]
-        } else {
-            return [hands[1]]
+    private List<Hand> highestCardWins(List<Hand> hands) {
+        def (handA, handB) = hands
+
+        switch (handA.highCard.compareTo(handB.highCard)) {
+            case 1:
+                return [handA]
+            case -1:
+                return [handB]
+            case 0:
+                return hands
         }
     }
 
 }
 
-class Hand extends ForwardingList<Integer> {
-    private list = []
-    @Override
-    protected List<Integer> delegate() {
-        return list
-    }
-
-    static Hand of(Integer... cards) {
-        def hand = new Hand()
-        hand.addAll(cards)
-        hand
-    }
-}
