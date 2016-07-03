@@ -1,7 +1,7 @@
 fun Int.toRoman(): String {
-    if (this < 10) {
-        return "I".repeat(this)
+    if (this >= 10) {
+        return "X".repeat(this / 10)
     } else {
-        return "X"
+        return "I".repeat(this)
     }
 }
