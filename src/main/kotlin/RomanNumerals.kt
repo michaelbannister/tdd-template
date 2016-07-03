@@ -1,6 +1,6 @@
 fun Int.toRoman(): String {
     if (this >= 1000) {
-        return "M"
+        return "M".repeat(this / 1000)
     } else if (this >= 100) {
         return "C".repeat(this / 100)
     } else if (this >= 10) {

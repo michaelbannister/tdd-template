@@ -23,7 +23,8 @@ class DecimalToRomanConverterTest {
                 arrayOf(20, "XX"),
                 arrayOf(100, "C"),
                 arrayOf(200, "CC"),
-                arrayOf(1000, "M")
+                arrayOf(1000, "M"),
+                arrayOf(2000, "MM")
             )
 }
 
