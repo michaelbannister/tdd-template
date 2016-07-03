@@ -26,5 +26,20 @@ class DecimalToRomanConverterTest {
                 arrayOf(1000, "M"),
                 arrayOf(2000, "MM")
             )
+    
+    @Test
+    @Parameters
+    fun testPlaceValues(number: Int, placeValueRepresentation: String) {
+        assertEquals(placeValueRepresentation, formatPlaceValues(toDecimalPlaceValues(number)))
+    }
+
+    private fun parametersForTestPlaceValues() =
+            arrayOf(
+                arrayOf(9, "9"),
+                arrayOf(14, "10+4"),
+                arrayOf(4025, "4000+20+5")
+            )
+
+    private fun formatPlaceValues(placeValues: List<Int>) = placeValues.joinToString(separator = "+")
 }
 
