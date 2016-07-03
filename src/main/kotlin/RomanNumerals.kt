@@ -10,7 +10,10 @@ fun Int.toRoman(): String {
 }
 
 fun toDecimalPlaceValues(number: Int): List<PlaceValue> {
-    val largestPowerNeeded = powersOfTen.find { number > it } ?: 1
+    if (number == 0) {
+        return emptyList()
+    }
+    val largestPowerNeeded = powersOfTen.find { number >= it } ?: 1
     if (largestPowerNeeded == 1) {
         return listOf(PlaceValue(number, 1))
     } else {
@@ -31,5 +34,5 @@ private fun Int.toRomanDigit(): String = when(this) {
 internal class RomanNumeralException(message: String) : RuntimeException(message)
 
 data class PlaceValue(val multiplier: Int, val unit: Int) {
-    override fun toString(): String = (multiplier * unit).toString()
+    override fun toString(): String = "$multiplier*$unit"
 }

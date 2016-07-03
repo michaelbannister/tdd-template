@@ -33,13 +33,14 @@ class DecimalToRomanConverterTest {
         assertEquals(placeValueRepresentation, formatPlaceValues(toDecimalPlaceValues(number)))
     }
 
-    private fun parametersForTestPlaceValues() =
-            arrayOf(
-                arrayOf(9, "9"),
-                arrayOf(14, "10+4"),
-                arrayOf(4025, "4000+20+5")
-            )
+private fun parametersForTestPlaceValues() =
+        arrayOf(
+            arrayOf(9, "9*1"),
+            arrayOf(14, "1*10 + 4*1"),
+            arrayOf(4025, "4*1000 + 2*10 + 5*1"),
+            arrayOf(10, "1*10")
+        )
 
-    private fun formatPlaceValues(placeValues: List<PlaceValue>) = placeValues.joinToString(separator = "+")
+private fun formatPlaceValues(placeValues: List<PlaceValue>) = placeValues.joinToString(separator = " + ")
 }
 
