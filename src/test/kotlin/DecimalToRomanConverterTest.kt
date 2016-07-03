@@ -25,7 +25,8 @@ class DecimalToRomanConverterTest {
                 arrayOf(200, "CC"),
                 arrayOf(1000, "M"),
                 arrayOf(2000, "MM"),
-                arrayOf(11, "XI")
+                arrayOf(11, "XI"),
+                arrayOf(3012, "MMMXII") // I didn't expect this to fail, just checking
             )
     
     @Test
