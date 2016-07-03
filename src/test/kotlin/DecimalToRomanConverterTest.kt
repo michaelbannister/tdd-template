@@ -18,7 +18,8 @@ class DecimalToRomanConverterTest {
     private fun parametersForTestIntToRomanConversion() =
             arrayOf(
                 arrayOf(1, "I"),
-                arrayOf(2, "II")
+                arrayOf(2, "II"),
+                arrayOf(10, "X")
             )
 }
 
