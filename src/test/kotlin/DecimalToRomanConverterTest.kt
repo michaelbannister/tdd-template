@@ -40,6 +40,6 @@ class DecimalToRomanConverterTest {
                 arrayOf(4025, "4000+20+5")
             )
 
-    private fun formatPlaceValues(placeValues: List<Int>) = placeValues.joinToString(separator = "+")
+    private fun formatPlaceValues(placeValues: List<PlaceValue>) = placeValues.joinToString(separator = "+")
 }
 
