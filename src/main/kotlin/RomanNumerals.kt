@@ -1,3 +1,3 @@
 fun Int.toRoman(): String {
-    return "I"
+    return "I".repeat(this)
 }
