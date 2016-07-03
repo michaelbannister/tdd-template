@@ -1,12 +1,10 @@
 private val powersOfTen = listOf(1000, 100, 10, 1)
 
 fun Int.toRoman(): String {
-    powersOfTen.forEach { unit ->
-        if (this >= unit) {
-            return unit.toRomanDigit().repeat(this / unit)
-        }
-    }
-    throw RomanNumeralException("Can't yet convert ${this} to Roman numerals")
+    val placeValues = toDecimalPlaceValues(this)
+    return placeValues.map {
+        it.unit.toRomanDigit().repeat(it.multiplier)
+    }.joinToString(separator = "")
 }
 
 fun toDecimalPlaceValues(number: Int): List<PlaceValue> {
