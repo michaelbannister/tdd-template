@@ -21,7 +21,8 @@ class DecimalToRomanConverterTest {
                 arrayOf(2, "II"),
                 arrayOf(10, "X"),
                 arrayOf(20, "XX"),
-                arrayOf(100, "C")
+                arrayOf(100, "C"),
+                arrayOf(200, "CC")
             )
 }
 
