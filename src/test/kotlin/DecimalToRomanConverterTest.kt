@@ -1,10 +1,24 @@
+import junitparams.JUnitParamsRunner
+import junitparams.Parameters
+import junitparams.naming.TestCaseName
 import org.junit.Test
+import org.junit.runner.RunWith
 import kotlin.test.assertEquals
 
+@RunWith(JUnitParamsRunner::class)
 class DecimalToRomanConverterTest {
-    
-    @Test fun `1 is written as I`() = assertEquals("I", 1.toRoman())
-    
-    @Test fun `2 is written as II`() = assertEquals("II", 2.toRoman())
+
+    @Test
+    @TestCaseName("{0} is written as {1}")
+    @Parameters
+    fun testIntToRomanConversion(number: Int, romanRepresentation: String) {
+        assertEquals(romanRepresentation, number.toRoman())
+    }
+
+    private fun parametersForTestIntToRomanConversion() =
+            arrayOf(
+                arrayOf(1, "I"),
+                arrayOf(2, "II")
+            )
 }
 
