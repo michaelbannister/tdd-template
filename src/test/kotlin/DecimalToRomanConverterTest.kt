@@ -29,7 +29,8 @@ class DecimalToRomanConverterTest {
                 arrayOf(3012, "MMMXII"), // I didn't expect this to fail, just checking
                 arrayOf(5, "V"),
                 arrayOf(50, "L"),
-                arrayOf(500, "D")
+                arrayOf(500, "D"),
+                arrayOf(1555, "MDLV") // again, just checking 
             )
     
     @Test
