@@ -27,6 +27,7 @@ fun toDecimalPlaceValues(number: Int): List<PlaceValue> {
 
 private fun Int.toRomanDigit(): String = when(this) {
     1000 -> "M"
+    500 -> "D"
     100 -> "C"
     50 -> "L"
     10 -> "X"
