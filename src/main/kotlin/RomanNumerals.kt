@@ -5,11 +5,13 @@ fun Int.toRoman(): String {
     return placeValues.map {
         fun one() = it.magnitude.toRomanDigit()
         fun five() = (it.magnitude * 5).toRomanDigit()
+        fun ten() = (it.magnitude * 10).toRomanDigit()
         when (it.multiplier) {
             in 1..3 -> one().repeat(it.multiplier) 
             4 -> one() + five()
             5 -> five()
             in 6..8 -> five() + one().repeat(it.multiplier - 5)
+            9 -> one() + ten()
             else -> ""
         }
     }.joinToString(separator = "")
