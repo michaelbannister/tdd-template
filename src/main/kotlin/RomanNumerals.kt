@@ -4,7 +4,7 @@ fun Int.toRoman(): String {
     val placeValues = toDecimalPlaceValues(this)
     return placeValues.map {
         if (it.multiplier == 5) {
-            5.toRomanDigit()
+            (5 * it.magnitude).toRomanDigit()
         } else {
             it.magnitude.toRomanDigit().repeat(it.multiplier)
         }
@@ -28,6 +28,7 @@ fun toDecimalPlaceValues(number: Int): List<PlaceValue> {
 private fun Int.toRomanDigit(): String = when(this) {
     1000 -> "M"
     100 -> "C"
+    50 -> "L"
     10 -> "X"
     5 -> "V"
     1 -> "I"
