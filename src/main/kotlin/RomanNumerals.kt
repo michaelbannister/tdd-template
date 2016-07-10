@@ -9,6 +9,7 @@ fun Int.toRoman(): String {
             in 1..3 -> one().repeat(it.multiplier) 
             4 -> one() + five()
             5 -> five()
+            6 -> five() + one()
             else -> ""
         }
     }.joinToString(separator = "")

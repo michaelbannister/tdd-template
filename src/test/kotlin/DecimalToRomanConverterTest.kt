@@ -32,7 +32,8 @@ class DecimalToRomanConverterTest {
                 arrayOf(500, "D"),
                 arrayOf(1555, "MDLV"), // again, just checking
                 arrayOf(4, "IV"),
-                arrayOf(444, "CDXLIV") // again, just checking
+                arrayOf(444, "CDXLIV"), // again, just checking
+                arrayOf(666, "DCLXVI")
             )
     
     @Test
