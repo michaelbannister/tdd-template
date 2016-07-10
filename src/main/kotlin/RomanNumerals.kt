@@ -3,7 +3,11 @@ private val powersOfTen = listOf(1000, 100, 10, 1)
 fun Int.toRoman(): String {
     val placeValues = toDecimalPlaceValues(this)
     return placeValues.map {
-        it.magnitude.toRomanDigit().repeat(it.multiplier)
+        if (it.multiplier == 5) {
+            5.toRomanDigit()
+        } else {
+            it.magnitude.toRomanDigit().repeat(it.multiplier)
+        }
     }.joinToString(separator = "")
 }
 
@@ -25,6 +29,7 @@ private fun Int.toRomanDigit(): String = when(this) {
     1000 -> "M"
     100 -> "C"
     10 -> "X"
+    5 -> "V"
     1 -> "I"
     else -> throw RomanNumeralException("No mapping to symbol for ${this}")
 }
