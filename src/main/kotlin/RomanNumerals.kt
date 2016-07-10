@@ -3,10 +3,13 @@ private val powersOfTen = listOf(1000, 100, 10, 1)
 fun Int.toRoman(): String {
     val placeValues = toDecimalPlaceValues(this)
     return placeValues.map {
-        if (it.multiplier == 5) {
-            (5 * it.magnitude).toRomanDigit()
-        } else {
-            it.magnitude.toRomanDigit().repeat(it.multiplier)
+        fun one() = it.magnitude.toRomanDigit()
+        fun five() = (it.magnitude * 5).toRomanDigit()
+        when (it.multiplier) {
+            in 1..3 -> one().repeat(it.multiplier) 
+            4 -> one() + five()
+            5 -> five()
+            else -> ""
         }
     }.joinToString(separator = "")
 }
