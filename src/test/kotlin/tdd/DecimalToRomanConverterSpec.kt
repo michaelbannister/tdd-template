@@ -1,7 +1,9 @@
+package tdd
+
+import org.assertj.core.api.KotlinAssertions.assertThat
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
-import kotlin.test.assertEquals
 
 class DecimalToRomanConverterSpec : Spek({
     describe("Int.toRoman extension method") {
@@ -30,7 +32,7 @@ class DecimalToRomanConverterSpec : Spek({
         ).forEach {
             val (number, roman) = it
             it("should convert ${number} to ${roman}") {
-                assertEquals(roman, number.toRoman())
+                assertThat(number.toRoman()).isEqualTo(roman)
             }
         }
     }
@@ -43,13 +45,13 @@ class DecimalToRomanConverterSpec : Spek({
         ).forEach {
             val (number, placevalueString) = it
             it("should split ${number} into place values ${placevalueString}") {
-                assertEquals(placevalueString, formatPlaceValues(toDecimalPlaceValues(number)))
+                assertThat(toDecimalPlaceValues(number).format()).isEqualTo(placevalueString)
             }
         }
 
     }
 })
 
-private fun formatPlaceValues(placeValues: List<PlaceValue>) = placeValues.joinToString(separator = " + ")
+private fun List<PlaceValue>.format() = this.joinToString(separator = " + ")
 
 
