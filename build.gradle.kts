@@ -24,3 +24,7 @@ dependencies {
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
+
+application {
+    mainClassName = "org.bannisters.AppKt"
+}
