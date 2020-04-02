@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
+
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.3.70")
+    kotlin("jvm").version("1.3.70")
     application
 }
 
@@ -8,14 +10,14 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation(kotlin("stdlib-jdk8"))
     
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
 
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.13")
     constraints {
-        testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.3.70") {
+        testImplementation(kotlin("reflect", getKotlinPluginVersion())) {
             because("compilation gives the warning to 'Consider providing an explicit dependency on kotlin-reflect 1.3 to prevent strange errors'")
         }
     }
