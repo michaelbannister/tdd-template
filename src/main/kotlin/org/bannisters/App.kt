@@ -1,7 +1,7 @@
 package org.bannisters
 
 class App {
-    val greeting: String
+    val greeting: String?
         get() {
             return "Hello world."
         }
